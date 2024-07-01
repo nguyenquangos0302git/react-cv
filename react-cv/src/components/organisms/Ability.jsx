@@ -1,22 +1,23 @@
-import { Fragment } from "react";
-import SkillWithProgressBar from "../molecules/SkillWithProgressBar";
-import clsx from "clsx";
+import { Fragment } from 'react';
+import SkillWithProgressBar from '../molecules/SkillWithProgressBar';
+import clsx from 'clsx';
+import IconWithText from '../molecules/IconWithText';
 
 export default function Ability({
-  ability,
+  abilityTitle,
   sizeIconAndText,
   textTheme,
   iconName,
   iconAndTextColor,
-  skill,
+  skills,
   backgroundColor,
   roundSize,
   size,
   container,
   center,
-  percent,
   isShowPercent,
   color,
+  height,
 }) {
   return (
     <Fragment>
@@ -27,29 +28,32 @@ export default function Ability({
         )}
       >
         <b>
-          <i
-            className={clsx(
-              "fa",
-              iconName && `w3-${iconName}`,
-              "fa-fw",
-              "w3-margin-right",
-              iconAndTextColor && `w3-text-${iconAndTextColor}`
-            )}
+          <IconWithText
+            name={iconName}
+            fullWidth={true}
+            margin='right'
+            color={iconAndTextColor}
+            textName={abilityTitle}
           />
-          {ability}
         </b>
       </p>
-      <SkillWithProgressBar
-        skill={skill}
-        backgroundColor={backgroundColor}
-        roundSize={roundSize}
-        size={size}
-        container={container}
-        center={center}
-        percent={percent}
-        isShowPercent={isShowPercent}
-        color={color}
-      />
+      {skills.map((skill, index) => {
+        return (
+          <SkillWithProgressBar
+            key={index}
+            skill={skill.name}
+            backgroundColor={backgroundColor}
+            roundSize={roundSize}
+            size={size}
+            container={container}
+            center={center}
+            percent={skill.percent}
+            isShowPercent={isShowPercent}
+            color={color}
+            height={height}
+          />
+        );
+      })}
     </Fragment>
   );
 }

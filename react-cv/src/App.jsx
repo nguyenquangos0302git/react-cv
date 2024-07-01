@@ -1,11 +1,11 @@
 import { Fragment, useEffect, useState } from 'react';
 import { ThemeContextProvider } from './Context';
-// import { PersonalLanguages } from './PersonalLanguages';
 // import { UserInfoProvider } from './UserInfoContext';
 // import { PersonalContact } from './PersonalContact';
-import LeftContent from './components/LeftContent/LeftContent';
 import RightContent from './components/RightContent/RightContent';
 import Footer from './components/Footer/Footer';
+import HomePage from './components/templates/HomePage';
+import Form from './practice/Form';
 
 // export const personalContacts = [
 //   {
@@ -264,17 +264,8 @@ import Footer from './components/Footer/Footer';
 // }
 
 function App() {
-  return (
-    <Fragment>
-      <div className='w3-content w3-margin-top' style={{ maxWidth: 1400 }}>
-        <div className='w3-row-padding'>
-          <LeftContent />
-          <RightContent />
-        </div>
-      </div>
-      <Footer />
-    </Fragment>
-  );
+  // return <HomePage />;
+  return <Form />;
 }
 
 export default App;

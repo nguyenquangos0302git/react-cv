@@ -1,5 +1,5 @@
-import { Fragment } from "react";
-import ProgressBar from "../atoms/ProgressBar";
+import { Fragment } from 'react';
+import ProgressBar from '../atoms/ProgressBar';
 
 export default function SkillWithProgressBar({
   skill,
@@ -11,20 +11,13 @@ export default function SkillWithProgressBar({
   percent,
   isShowPercent,
   color,
+  height,
+  ...props
 }) {
   return (
     <Fragment>
       <p>{skill}</p>
-      <ProgressBar
-        backgroundColor={backgroundColor}
-        roundSize={roundSize}
-        size={size}
-        container={container}
-        center={center}
-        percent={percent}
-        isShowPercent={isShowPercent}
-        color={color}
-      />
+      <ProgressBar {...props} />
     </Fragment>
   );
 }
